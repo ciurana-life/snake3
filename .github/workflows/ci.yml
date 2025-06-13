@@ -1,0 +1,41 @@
+name: Rust CI
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install Rust toolchain
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+
+    - name: Install cargo-audit
+      run: cargo install cargo-audit
+
+    - name: Install cargo-tarpaulin
+      run: cargo install cargo-tarpaulin
+
+    - name: Check code formatting
+      run: cargo fmt -- --check
+
+    - name: Run cargo clippy
+      run: cargo clippy -- -D warnings
+
+    - name: Run cargo audit
+      run: cargo audit
+
+    - name: Run tests
+      run: cargo test --verbose
+
+    - name: Check test coverage (must be 100%)
+      run: cargo tarpaulin --fail-under 100 --exclude-files src/main.rs

@@ -4,3 +4,15 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+crossterm = "0.29.0"
+rand = "0.9.1"
+
+[dev-dependencies.cargo-husky]
+version = "1"
+default-features = false
+
+[package.metadata.husky.hooks]
+pre-commit = """
+cargo fmt --all -- --check &&
+cargo clippy --all-targets -- -D warnings
+"""
