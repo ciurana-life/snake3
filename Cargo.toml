@@ -2,6 +2,14 @@
 name = "snake3"
 version = "0.1.0"
 edition = "2024"
+authors = ["Victor Ciurana admin@victorciurana.com"]
+description = "Play the classical snake game on your terminal or use the crate to build your own."
+license = "MIT"
+repository = "https://github.com/ciurana-life/snake3"
+homepage = "https://github.com/ciurana-life/snake3"
+readme = "CRATE_README.md"
+keywords = ["snake", "game"]
+categories = ["game-engines"]
 
 [dependencies]
 crossterm = "0.29.0"
