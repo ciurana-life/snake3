@@ -20,12 +20,12 @@ let mut snake_game = SnakeGame::new(
 * `starting_position` will default to the tuple `(cols/2, rows/2)`.
 
 ## Moving the snake
-Using the method [set_direction](`snake::Snake::set_direction`) we can change where the snake is headed:
+Using the method `snake::Snake::set_direction` we can change where the snake is headed:
 ``` rust
 use snake3::snake::SnakeDirection;
 snake_game.snake.set_direction(SnakeDirection::Up);
 ```
-And then on our game loop we can call [advance](`snake::Snake::advance`) to move in the las set direction:
+And then on our game loop we can call `snake::Snake::advance` to move in the las set direction:
 ``` rust
 snake_game.snake.advance();
 ```
@@ -67,3 +67,14 @@ new_game.generate_entity(named!(Bomb));
 
 ## Working example
 You can see an example implementation that runs in the terminal in [the repo](<https://github.com/ciurana-life/snake3/blob/main/src/main.rs>).
+
+## WASM support
+For WASM you have to set:
+```bash
+export RUSTFLAGS='--cfg getrandom_backend="wasm_js"'
+```
+
+So that you can build with:
+```bash
+cargo build --release --target wasm32-unknown-unknown
+```
