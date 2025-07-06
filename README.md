@@ -21,18 +21,11 @@ cargo run
 ```
 
 ## You can use it for WASM
-Set this flag:
-```bash
-export RUSTFLAGS='--cfg getrandom_backend="wasm_js"'
-```
-Compile:
+It uses the macroquad random module.
 ```bash
 cargo build --release --target wasm32-unknown-unknown
 ```
-Remember to remove flags after if you want to use `main.rs` game:
-```bash
-unset RUSTFLAGS
-```
+
 
 
 ## Docs
