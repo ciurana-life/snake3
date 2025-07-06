@@ -1,6 +1,6 @@
 [package]
 name = "snake3"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2024"
 authors = ["Victor Ciurana admin@victorciurana.com"]
 description = "Play the classical snake game on your terminal or use the crate to build your own."
