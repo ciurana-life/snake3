@@ -69,12 +69,7 @@ new_game.generate_entity(named!(Bomb));
 You can see an example implementation that runs in the terminal in [the repo](<https://github.com/ciurana-life/snake3/blob/main/src/main.rs>).
 
 ## WASM support
-For WASM you have to set:
-```bash
-export RUSTFLAGS='--cfg getrandom_backend="wasm_js"'
-```
-
-So that you can build with:
+It uses the macroquad random module.
 ```bash
 cargo build --release --target wasm32-unknown-unknown
 ```

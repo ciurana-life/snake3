@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-use rand::Rng;
+use super::random_range;
 
 use super::{Snake, SnakeDirection, entities::Entity};
 
@@ -139,8 +139,7 @@ impl SnakeGame {
         if empty_spots.is_empty() {
             return false;
         }
-        let mut rng = rand::rng();
-        let new_position = empty_spots[rng.random_range(0..empty_spots.len())];
+        let new_position = empty_spots[random_range(0, empty_spots.len() as i16) as usize];
         let entity = make_entity(new_position.0, new_position.1);
         self.entities.push(entity);
         true
